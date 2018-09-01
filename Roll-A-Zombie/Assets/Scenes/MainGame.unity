@@ -575,6 +575,7 @@ GameObject:
   - component: {fileID: 1273063495}
   - component: {fileID: 1273063494}
   - component: {fileID: 1273063493}
+  - component: {fileID: 1273063496}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -636,12 +637,32 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1273063492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.86, y: 10.22, z: -23.47}
+  m_LocalPosition: {x: 5.28, y: 9.97, z: -23.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1273063496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1273063492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4254878b81c6b464fa087c5a9bf75576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedZombiePosition: 0
+  selectedZombie: {fileID: 1412410760}
+  zombies:
+  - {fileID: 1412410760}
+  - {fileID: 1214241086}
+  - {fileID: 847705312}
+  - {fileID: 1272538684}
+  selectedSize: {x: 1.45, y: 1.45, z: 1.45}
+  defaultSize: {x: 1, y: 1, z: 1}
 --- !u!1 &1412410760 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000011233038864, guid: d29d2fcf46c754d6a92fc7c19b2d7b3e,
