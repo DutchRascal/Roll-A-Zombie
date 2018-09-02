@@ -15,10 +15,46 @@ public class GameManager : MonoBehaviour
     {
         SelectZombie(zombies[0], 0);
     }
+    void ShifLeft()
+    {
+        if (selectedZombiePosition == 0)
+        {
+            SelectZombie(zombies[3], 3);
+        }
+        else
+        {
+            SelectZombie(zombies[selectedZombiePosition - 1], selectedZombiePosition - 1);
+        }
+    }
+
+    void ShiftRight()
+    {
+        if (selectedZombiePosition == 3)
+        {
+            SelectZombie(zombies[0], 0);
+        }
+        else
+        {
+            SelectZombie(zombies[selectedZombiePosition + 1], selectedZombiePosition + 1);
+        }
+    }
 
     void SelectZombie(GameObject newZombie, int newPosition)
     {
         selectedZombie = newZombie;
         selectedZombie.transform.localScale = selectedSize;
+        selectedZombiePosition = newPosition;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("left"))
+        {
+            ShifLeft();
+        }
+        if (Input.GetKeyDown("right"))
+        {
+            ShiftRight();
+        }
     }
 }
