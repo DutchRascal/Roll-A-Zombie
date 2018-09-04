@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +12,14 @@ public class GameManager : MonoBehaviour
     public List<GameObject> zombies;
     public Vector3 selectedSize;
     public Vector3 defaultSize;
+    public Text text;
+    private int score;
+
 
     private void Start()
     {
         SelectZombie(zombies[0], 0);
+        text.text = "Score: " + score;
     }
     void ShifLeft()
     {
@@ -41,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     void SelectZombie(GameObject newZombie, int newPosition)
     {
+        selectedZombie.transform.localScale = defaultSize;
         selectedZombie = newZombie;
         selectedZombie.transform.localScale = selectedSize;
         selectedZombiePosition = newPosition;
@@ -48,13 +55,29 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("left"))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             ShifLeft();
         }
-        if (Input.GetKeyDown("right"))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             ShiftRight();
         }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            PushUp();
+        }
+    }
+
+    private void PushUp()
+    {
+        Rigidbody rb = selectedZombie.GetComponent<Rigidbody>();
+        rb.AddForce(0, 0, 10, ForceMode.Impulse);
+    }
+
+    public void AddScore()
+    {
+        score += 1;
+        text.text = "Score: " + score;
     }
 }
