@@ -5,9 +5,17 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public GameManager gameManager;
+    public AudioClip hit;
+    public AudioSource source;
+
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         gameManager.AddScore();
+        source.PlayOneShot(hit);
     }
 }
